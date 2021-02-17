@@ -16,7 +16,7 @@
     git fetch --all
     git reset --hard origin/master
     sudo ln -nsvf .env.production .env
-    composer install
+    composer install --no-dev
     sudo chown -R www:www storage bootstrap/cache
 
     if [ ! -d /data/file ]; then

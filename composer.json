@@ -19,6 +19,7 @@
         "mucts/laravel-swoole": "^1.0"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.9",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.13",
         "laravel/envoy": "^2.5",

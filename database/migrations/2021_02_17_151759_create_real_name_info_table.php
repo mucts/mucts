@@ -13,8 +13,8 @@ class CreateRealNameInfoTable extends Migration
      */
     public function up()
     {
-        if (!Schema::connection('user')->hasTable('real_name_info')) {
-            Schema::connection('user')->create('real_name_info', function (Blueprint $table) {
+        if (!Schema::connection('user')->hasTable('real_name_infos')) {
+            Schema::connection('user')->create('real_name_infos', function (Blueprint $table) {
                 $table->id();
                 $table->string('real_name', 32)->comment('真实姓名');
                 $table->char('id_card', 18)->unique('idx_id_card')->comment('身份证号');
@@ -34,6 +34,6 @@ class CreateRealNameInfoTable extends Migration
      */
     public function down()
     {
-        Schema::connection('user')->dropIfExists('real_name_info');
+        Schema::connection('user')->dropIfExists('real_name_infos');
     }
 }

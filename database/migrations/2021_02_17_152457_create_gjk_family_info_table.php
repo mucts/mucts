@@ -13,8 +13,8 @@ class CreateGjkFamilyInfoTable extends Migration
      */
     public function up()
     {
-        if(!Schema::connection('user')->hasTable('gjk_family_info')) {
-            Schema::connection('user')->create('gjk_family_info', function (Blueprint $table) {
+        if(!Schema::connection('user')->hasTable('gjk_family_infos')) {
+            Schema::connection('user')->create('gjk_family_infos', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedInteger('gjk_user_id')->comment('贵健康用户ID');
                 $table->string('name', 32)->comment('姓名');
@@ -48,6 +48,6 @@ class CreateGjkFamilyInfoTable extends Migration
      */
     public function down()
     {
-        Schema::connection('user')->dropIfExists('gjk_family_info');
+        Schema::connection('user')->dropIfExists('gjk_family_infos');
     }
 }
