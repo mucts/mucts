@@ -38,5 +38,6 @@
     php artisan config:clear
     php artisan view:clear
     php artisan migrate --force
+    php artisan swoole:http restart &
     echo 'deploy success'
 @endtask
