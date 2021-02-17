@@ -41,3 +41,26 @@
     php artisan swoole:http restart &
     echo 'deploy success'
 @endtask
+
+@task('nginx')
+    if [ ! -d /data/source ]; then
+        sudo mkdir -p /data/source
+    fi
+
+    if [ -d /data/source/nginx ]; then
+        rm -rf /data/source/nginx
+    fi
+
+    cd /data/source
+    git clone git@github.com:mucts/nginx.git nginx
+    cd nginx
+    mv -f nginx.conf /data/server/nginx/conf/nginx.conf
+    mkdir /data/server/nginx/conf/vhosts/
+    mv -f vhosts/* /data/server/nginx/conf/vhosts/
+    mkdir /data/cert/
+    mv -f cert/* /data/cert/
+    rm -rf /data/source/nginx
+    cd ~
+    service nginx reload
+    echo 'nginx success'
+@endtask
