@@ -8,16 +8,12 @@ use Illuminate\Support\Facades\Log;
 
 class PhysicalExamination extends Command
 {
-    const HOSP_FOR_FY = "http://58.16.19.171:3001";
-    const HOSP_FOR_JY = "http://111.85.152.214:3001";
-    const HOSP_FOR_GW = "https://117.187.14.226:7061";
-    const HOSP_FOR_LY = "http://58.42.241.104:1025";
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'mcts:gjk:physical:examination {requestUrl}';
+    protected $signature = 'mcts:gjk:physical:examination';
 
     /**
      * The console command description.
@@ -47,11 +43,11 @@ class PhysicalExamination extends Command
         try {
             Log::channel("console")->info("拉取体检报告 开始");
             $url = "http://58.42.241.104:1025/api/physicalExamReportList";
-           /* $res = api_request($url, "post", [
-                "report_start_time" => get_datetime(),
-                "report_end_time" => current_datetime()
-            ], [], "json", 600);*/
-            $res='{
+            /* $res = api_request($url, "post", [
+                 "report_start_time" => get_datetime(),
+                 "report_end_time" => current_datetime()
+             ], [], "json", 600);*/
+            $res = '{
     "code": 0,
     "message": "获取成功",
     "PEPatientsList": [
@@ -32376,7 +32372,7 @@ class PhysicalExamination extends Command
                         && !preg_match("/测试/", $item['name'])
                         && id_card_verify($item['id_card'])) {
                         $info = RealNameInfo::whereidCard($item['id_card'])->first();
-                        if ($info && array_key_exists("phone", $item) && $item['phone'] && !$info->mobile) {
+                        if ($info && array_key_exists("phone", $item) && $item['phone'] && preg_match('/^1\d{10}$/', $item['phone']) && !$info->mobile) {
                             $info->mobile = $item['phone'];
                             $info->save();
                         } else {
@@ -32385,11 +32381,11 @@ class PhysicalExamination extends Command
                                     "id_card" => $item['id_card']
                                 ],
                                 [
-                                    "id_card" => $item['id_card'],
-                                    "real_name" => $item['name'],
+                                    "id_card"      => $item['id_card'],
+                                    "real_name"    => $item['name'],
                                     "auth_channel" => RealNameInfo::AUTH_CHANNEL_GY_LY,
-                                    "mobile" => @$item['phone'] && strlen($item['phone']) == 11 ? $item['phone'] : null,
-                                    "authed_at" => current_datetime()
+                                    "mobile"       => @$item['phone'] && strlen($item['phone']) == 11 ? $item['phone'] : null,
+                                    "authed_at"    => current_datetime()
                                 ]
                             );
                         }
