@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Gjk\Family;
 use App\Console\Gjk\RealName;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -15,7 +16,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        RealName::class
+        RealName::class,
+        Family::class
     ];
 
     /**
@@ -29,6 +31,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         Collection::times(20, function () use ($schedule) {
             $schedule->command("mcts:gjk:real:name:info")->everyMinute()->withoutOverlapping();
+            $schedule->command("mcts:gjk:family:info")->everyMinute()->withoutOverlapping();
         });
     }
 
