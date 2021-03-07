@@ -15,8 +15,10 @@
         "illuminate/console": "^8.28",
         "laravel/framework": "^8.28",
         "laravel/tinker": "^2.5",
+        "mucts/helpers": "^1.0",
         "mucts/laravel-gjk-api": "^3.0",
-        "mucts/laravel-swoole": "^1.0"
+        "mucts/laravel-swoole": "^1.0",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",

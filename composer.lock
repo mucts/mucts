@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec106b4bc1f7610c2dd50076234b315e",
+    "content-hash": "9504d3b5aa0fd1c38f6a4ea1a0188e27",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1589,6 +1589,55 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
+        },
+        {
+            "name": "mucts/helpers",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mucts/helpers.git",
+                "reference": "2aea2a1b18447bf38aa5e90dc24d1dd3763d4efb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mucts/helpers/zipball/2aea2a1b18447bf38aa5e90dc24d1dd3763d4efb",
+                "reference": "2aea2a1b18447bf38aa5e90dc24d1dd3763d4efb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "^8.0",
+                "ext-iconv": "^8.0",
+                "ext-json": "^8.0",
+                "ext-mbstring": "^8.0",
+                "ext-openssl": "^8.0",
+                "guzzlehttp/guzzle": "^7.2",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MuCTS\\Helpers\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Herry",
+                    "email": "yuandeng@aliyun.com"
+                }
+            ],
+            "description": "个人常用方法，如身份证验证",
+            "support": {
+                "issues": "https://github.com/mucts/helpers/issues",
+                "source": "https://github.com/mucts/helpers/tree/1.0.0"
+            },
+            "time": "2021-03-07T13:04:56+00:00"
         },
         {
             "name": "mucts/laravel-gjk-api",
