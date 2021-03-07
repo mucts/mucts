@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Gjk\Family;
+use App\Console\Gjk\PhysicalExamination;
 use App\Console\Gjk\RealName;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -17,7 +18,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         RealName::class,
-        Family::class
+        Family::class,
+        PhysicalExamination::class
     ];
 
     /**
@@ -29,6 +31,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command("mcts:gjk:physical:examination " . PhysicalExamination::HOSP_FOR_JY)->dailyAt("00:00")->withoutOverlapping();
+        $schedule->command("mcts:gjk:physical:examination " . PhysicalExamination::HOSP_FOR_FY)->dailyAt("00:00")->withoutOverlapping();
+        $schedule->command("mcts:gjk:physical:examination " . PhysicalExamination::HOSP_FOR_GW)->dailyAt("00:00")->withoutOverlapping();
+        $schedule->command("mcts:gjk:physical:examination " . PhysicalExamination::HOSP_FOR_LY)->dailyAt("00:00")->withoutOverlapping();
+
         Collection::times(20, function () use ($schedule) {
             $schedule->command("mcts:gjk:real:name:info")->everyMinute()->withoutOverlapping();
             $schedule->command("mcts:gjk:family:info")->everyMinute()->withoutOverlapping();
