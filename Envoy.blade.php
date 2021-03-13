@@ -56,7 +56,7 @@
     fi
 
     if [ ! -d /data/cert ]; then
-        rm -rf /data/cert
+        mkdir /data/cert
     fi
 
     cd /data/source
