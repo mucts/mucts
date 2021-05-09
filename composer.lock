@@ -1442,16 +1442,16 @@
         },
         {
             "name": "mucts/helpers",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mucts/helpers.git",
-                "reference": "e55c13dbabcf139955efd55f487805321ecc8b0a"
+                "reference": "ca3d01ac52b96d7815e8ff18a21f747024dd33e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mucts/helpers/zipball/e55c13dbabcf139955efd55f487805321ecc8b0a",
-                "reference": "e55c13dbabcf139955efd55f487805321ecc8b0a",
+                "url": "https://api.github.com/repos/mucts/helpers/zipball/ca3d01ac52b96d7815e8ff18a21f747024dd33e2",
+                "reference": "ca3d01ac52b96d7815e8ff18a21f747024dd33e2",
                 "shasum": ""
             },
             "require": {
@@ -1485,9 +1485,9 @@
             "description": "个人常用方法，如身份证验证",
             "support": {
                 "issues": "https://github.com/mucts/helpers/issues",
-                "source": "https://github.com/mucts/helpers/tree/1.0.1"
+                "source": "https://github.com/mucts/helpers/tree/1.0.2"
             },
-            "time": "2021-03-07T15:14:06+00:00"
+            "time": "2021-05-09T03:20:51+00:00"
         },
         {
             "name": "mucts/laravel-gjk-api",
