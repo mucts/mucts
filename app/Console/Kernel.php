@@ -33,10 +33,10 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command("mcts:gjk:physical:examination")->dailyAt("00:00")->withoutOverlapping();
 
-        Collection::times(20, function () use ($schedule) {
+        /*Collection::times(20, function () use ($schedule) {
             $schedule->command("mcts:gjk:real:name:info")->everyMinute()->withoutOverlapping();
             $schedule->command("mcts:gjk:family:info")->everyMinute()->withoutOverlapping();
-        });
+        });*/
     }
 
     /**
