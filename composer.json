@@ -71,6 +71,10 @@
         "swoole": {
             "type": "vcs",
             "url": "git@github.com:mucts/laravel-swoole.git"
+        },
+        "laravel-cors": {
+            "type": "vcs",
+            "url": "git@github.com:mucts/laravel-cors.git"
         }
     }
 }
